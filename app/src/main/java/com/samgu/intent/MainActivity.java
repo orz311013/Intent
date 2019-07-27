@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
         btn01.setOnClickListener(btn01Lin);
         btn02.setOnClickListener(btn02Lin);
-//        btn03.setOnClickListener(btn03Lin);
-//        btn04.setOnClickListener(btn04Lin);
-//        btn05.setOnClickListener(btn05Lin);
-//        btn06.setOnClickListener(btn06Lin);
+        btn03.setOnClickListener(btn03Lin);
+        btn04.setOnClickListener(btn04Lin);
+        btn05.setOnClickListener(btn05Lin);
+        btn06.setOnClickListener(btn06Lin);
 
     }
 
@@ -51,9 +52,54 @@ public class MainActivity extends AppCompatActivity {
 
     private Button.OnClickListener btn02Lin = new Button.OnClickListener() {
         public void onClick(View view) {
+//第一種寫法
+            /*
+            Intent it = new Intent(getApplicationContext(), Main2Activity.class);
+            Bundle bundle = new Bundle();//打包資料
+            bundle.putString("name", "Sam");//放入資料(Key,Value)
+            bundle.putInt("age", 20);
+            String[] data = {"Sam", "Gu", "Tammy", "John"};
+            bundle.putStringArray("namelist", data);
+            it.putExtras(bundle);//把打包好的bundle放入 it傳送
+            startActivity(it);
+*/
+            //第二種 用Intent 快速傳遞資料
+            Intent it = new Intent(getApplicationContext(), Main2Activity.class);
+            Bundle bundle = new Bundle();
+            it.putExtra("sex", "男"); //透過Intent 直接putExtra (Key,Value)
+            it.putExtra("height", 20);
+            startActivity(it);
+
 
         }
     };
 
+
+    private Button.OnClickListener btn03Lin = new Button.OnClickListener() {
+        public void onClick(View view) {
+
+        }
+    };
+
+
+    private Button.OnClickListener btn04Lin = new Button.OnClickListener() {
+        public void onClick(View view) {
+
+        }
+    };
+
+
+    private Button.OnClickListener btn05Lin = new Button.OnClickListener() {
+        public void onClick(View view) {
+
+        }
+    };
+
+
+    private Button.OnClickListener btn06Lin = new Button.OnClickListener() {
+        public void onClick(View view) {
+
+        }
+    };
 
 }
