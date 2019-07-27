@@ -3,7 +3,9 @@ package com.samgu.intent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
@@ -77,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button.OnClickListener btn03Lin = new Button.OnClickListener() {
         public void onClick(View view) {
-
+            Intent it = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);// 打開照相機
+            startActivity(it);
         }
     };
 
@@ -85,13 +88,16 @@ public class MainActivity extends AppCompatActivity {
     private Button.OnClickListener btn04Lin = new Button.OnClickListener() {
         public void onClick(View view) {
 
+
         }
     };
 
 
     private Button.OnClickListener btn05Lin = new Button.OnClickListener() {
         public void onClick(View view) {
-
+            Uri uri = Uri.parse("http://yahoo.com.tw");
+            Intent it = new Intent(Intent.ACTION_VIEW, uri); //啟動瀏覽器(瀏覽yahoo網址)
+            startActivity(it);
         }
     };
 
@@ -99,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
     private Button.OnClickListener btn06Lin = new Button.OnClickListener() {
         public void onClick(View view) {
 
+            String phone = content.getText().toString();
+            Uri uri = Uri.parse("tel:" + phone);
+            Intent it = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(it);
         }
     };
 
